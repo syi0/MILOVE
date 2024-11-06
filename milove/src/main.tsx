@@ -5,6 +5,7 @@ import './index.css'
 import reportWebVitals from './reportWebVitals'
 import Login from './Login/Login.tsx'
 import Register from './Register/Register.tsx'
+import Social from './MainSocial/MainSocial.tsx'
 import {
   createBrowserRouter,
   RouterProvider,
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <Register/>,
+  },
+  {
+    path: "/social",
+    element: <Social />
   },
 ]);
 
