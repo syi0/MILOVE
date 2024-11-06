@@ -3,12 +3,12 @@ import './Footer.css'
 export default function () {
     return(
         <footer>
-            &copy; MILOVE 2024
-            <a href="#" className='footerTile'>Regulamin</a>
-            <a href="#" className='footerTile'>Instagram</a>
-            <a href="#" className='footerTile'>Facebook</a>
-            <a href="#" className='footerTile'></a>
-            
+
+            <a className='footerTile'>&copy;MILOVE 2024</a>
+            <a href="#" className='footerTile'><i className="fa-brands fa-instagram"></i> Instagram</a>
+            <a href="#" className='footerTile'><i className="fa-brands fa-square-facebook"></i> Facebook</a>
+            <a href="#" className='footerTile'><i className="fa-regular fa-envelope"></i> Contact us</a>
+
         </footer>
     );
 }
