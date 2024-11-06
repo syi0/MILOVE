@@ -24,6 +24,18 @@ h1 {
   line-height: 1.1;
 }
 
+input {
+  padding: 3px;
+  margin: 5px;
+  border: transparent solid 3px;
+  outline: none;
+  -webkit-transition: 0.25s;
+  transition: 0.25s;
+}
+input:focus {
+  border: #ff47e0 solid 3px;
+}
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;
@@ -34,7 +46,7 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   color: #fefefe;
-  transition: color 0.3s;
+  transition: 0.3s;
 }
 button:hover {
   color: #ff47e0;

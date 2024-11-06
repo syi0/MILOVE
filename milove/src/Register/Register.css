@@ -1,0 +1,9 @@
+.Register {
+    height: 100vh;
+    width: 100%;
+    background-image: url('../!images/background-for-login-and-register.png');
+}
+
+.Register form {
+    text-align: right;
+}
