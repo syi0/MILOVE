@@ -2,6 +2,6 @@ import './MainSocial.css'
 
 export default function MainSocial() {
     return(
-        <div></div>
+        <div><a href="/">Home</a></div>
     );
 }

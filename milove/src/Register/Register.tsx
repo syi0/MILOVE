@@ -1,9 +1,11 @@
 import './Register.css'
+import Logo from '../!images/LOGO.png'
 
 export default function Register() {
     return(
         <div>
             <form action="" className='Register'>
+                <img src={Logo} alt="LOGO" /> <br />
                 <label htmlFor="username">Username: </label><input type="text" name="username" id="username" placeholder='Name'/> <br /> <br />
                 <label htmlFor="email">Email: </label><input type="email" name="email" id="email" placeholder='uwu@gmail.com'/><br /> <br />
                 <label htmlFor="password">Password: </label><input type="password" name="password" id="password" placeholder='Password123'/> <br /> <br />

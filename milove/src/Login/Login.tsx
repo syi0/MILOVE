@@ -1,9 +1,11 @@
 import './Login.css'
+import Logo from '../!images/LOGO.png'
 
 export default function Login() {
     return(
         <div className='Login'>
             <form action="">
+                <img src={Logo} alt="LOGO" /> <br />
                 <label htmlFor="username">Username: </label><input type="text" name="username" id="username" placeholder='Name'/> <br /> <br />
                 <label htmlFor="password">Password: </label><input type="password" name="password" id="password" placeholder='Password123'/> <br /> <br />
                 <button>Login</button> <br />
