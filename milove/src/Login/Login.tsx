@@ -2,6 +2,14 @@ import './Login.css'
 
 export default function Login() {
     return(
-        <div></div>
+        <div className='Login'>
+            <form action="">
+                <label htmlFor="username">Username: </label><input type="text" name="username" id="username" placeholder='Name'/> <br /> <br />
+                <label htmlFor="password">Password: </label><input type="password" name="password" id="password" placeholder='Password123'/> <br /> <br />
+                <button>Login</button> <br />
+                <p>You don't have an account? <a href="/register"><b>Register!</b></a></p> <br />
+                <a href="/"><b><i className="fa-solid fa-arrow-left"></i> Home</b></a>
+            </form>
+        </div>
     );
 }
