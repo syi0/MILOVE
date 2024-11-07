@@ -4,9 +4,14 @@
     align-items: center;
     height: 100vh;
     width: 100%;
+    overflow: hidden;
     background-image: url('../!images/background-for-login-and-register.png');
 }
 
 img {
     margin-top: 20px;
+}
+
+p {
+    font-size: 80%;
 }
