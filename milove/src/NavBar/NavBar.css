@@ -3,6 +3,7 @@ nav {
     backdrop-filter: blur(20px);
     user-select: none;
     box-shadow: 3px 3px 0 0 .4em;
+    position: sticky;
 }
 
 nav ul {
