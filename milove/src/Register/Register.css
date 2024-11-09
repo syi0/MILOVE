@@ -5,6 +5,9 @@
     align-items: center;
     width: 100%;
     background-image: url('../!images/background-for-login-and-register.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .Register form {

@@ -7,7 +7,7 @@ body {
   background-color: #242424;
   margin: 0;
   padding: 0;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 a {
@@ -16,6 +16,7 @@ a {
   text-decoration: inherit;
   transition: .3s ease;
 }
+
 a:hover {
   color: #ff47e0;
 }
@@ -33,6 +34,7 @@ input {
   -webkit-transition: 0.25s;
   transition: 0.25s;
 }
+
 input:focus {
   border: #ff47e0 solid 3px;
 }
@@ -49,9 +51,15 @@ button {
   color: #fefefe;
   transition: 0.3s;
 }
+
 button:hover {
   color: #ff47e0;
 }
+
 button:focus {
   border-color: #ff47e0;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
