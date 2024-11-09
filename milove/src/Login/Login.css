@@ -5,4 +5,7 @@
     text-align: center;
     align-items: center;
     background-image: url('../!images/background-for-login-and-register.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }

@@ -2,10 +2,10 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
-import reportWebVitals from './reportWebVitals'
+import reportWebVitals from './reportWebVitals.tsx'
 import Login from './Login/Login.tsx'
 import Register from './Register/Register.tsx'
-import Social from './MainSocial/MainSocial.tsx'
+import Social from './MainSocial/Homepage.tsx'
 import {
   createBrowserRouter,
   RouterProvider,
@@ -14,15 +14,15 @@ import {
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App/>,
+    element: <App />,
   },
   {
     path: "/login",
-    element: <Login/>,
+    element: <Login />,
   },
   {
     path: "/register",
-    element: <Register/>,
+    element: <Register />,
   },
   {
     path: "/social",
