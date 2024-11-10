@@ -11,7 +11,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { Avatar } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { signOut } from "firebase/auth";
-import { logoutUser } from "../features/userSlice";
+import { logoutUser } from "../Features/userSlice";
 import { auth } from "../firebase";
 
 export default function Sidenav() {

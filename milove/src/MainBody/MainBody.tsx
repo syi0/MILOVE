@@ -1,10 +1,12 @@
 import './MainBody.css'
 import Logo from '../!images/LOGO.png'
 import Footer from '../Footer/Footer';
+import NavBar from '../NavBar/NavBar'
 
 export default function MainBody() {
     return(
         <div className='MainBody'>
+            <NavBar />
             <img src={Logo} alt="LOGO" /> <br />
             <a href="/register"><button>Join to MILOVE!</button></a> <br />
             <h1>Why us?</h1>
