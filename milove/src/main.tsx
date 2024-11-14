@@ -2,8 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.tsx'
 import './index.css'
-import Login from './Login/Login.tsx'
-import Register from './Register/Register.tsx'
+import Auth from './Login/Authentication.tsx'
 import Social from './MainSocial/Homepage.tsx'
 import {
   createBrowserRouter,
@@ -18,12 +17,8 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/register",
-    element: <Register />,
+    path: "/auth",
+    element: <Auth />,
   },
   {
     path: "/social",
