@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import Graph from "react-graph-vis";
-export default function Graph() {
+export default function GraphView() {
     const graph = {
         nodes: [
           { id: 1, label: "Node 1", title: "node 1 tootip text" },
