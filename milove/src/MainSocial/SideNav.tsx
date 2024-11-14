@@ -15,7 +15,9 @@ import { logoutUser } from "../Features/userSlice";
 import { auth } from "../firebase";
 
 export default function Sidenav() {
+  
   const user = useSelector((state) => state.data.user.user);
+  console.log("skbd");
   const dispatch = useDispatch();
   const handelLogout = () => {
     dispatch(logoutUser());
