@@ -4,6 +4,7 @@ import App from './App.tsx'
 import './index.css'
 import Auth from './Login/Authentication.tsx'
 import Social from './MainSocial/Homepage.tsx'
+import Graph from './GraphUML/Graph.tsx'
 import {
   createBrowserRouter,
   RouterProvider,
@@ -23,6 +24,14 @@ const router = createBrowserRouter([
   {
     path: "/social",
     element: <Social />
+  },
+  {
+    path: "/graph",
+    element: <Graph />
+  },
+  {
+    path: "/uml",
+    element: <Graph />
   },
 ]);
 
