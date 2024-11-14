@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Sidenav.css";
 import HomeIcon from "@mui/icons-material/Home";
 import SearchIcon from "@mui/icons-material/Search";
@@ -10,15 +10,36 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Avatar } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { signOut, } from "firebase/auth";
+import { onAuthStateChanged, signOut, } from "firebase/auth";
 import { logoutUser } from "../Features/userSlice";
 import { auth } from "../firebase";
+import { useNavigate } from "react-router-dom";
 
 export default function Sidenav() {
-  
- // const user = useSelector((state) => state.data.user.user);
- const user =  firebase.auth().currentUser;
-  console.log("skbd");
+  const navigate=useNavigate();
+  const [user, setUser] = useState(0);
+  useEffect(() => {
+     async function test() {
+         
+    
+     await onAuthStateChanged(auth, (userr) => {
+      
+         if (userr != null) {
+           // User is signed in, see docs for a list of available properties
+           // https://firebase.google.com/docs/reference/js/auth.user
+            setUser(userr);
+         
+           // ...
+         } else {
+           navigate("/auth");
+         }
+       });
+       
+     }
+     test();
+
+    
+ });
   const dispatch = useDispatch();
   const handelLogout = () => {
     dispatch(logoutUser());
@@ -62,16 +83,16 @@ export default function Sidenav() {
           <span>Create</span>
         </button>
         <button className="sidenav__button">
-          <Avatar>
-            {user.username ? user.username.charAt(0).toUpperCase() : "A"}
-          </Avatar>
-          <span>
-            {user.username}{" "}
-            <button onClick={handelLogout} className="logout__button">
-              Logout
-            </button>
-          </span>
-        </button>
+<Avatar>
+  {user.displayName ? user.displayName.charAt(0).toUpperCase() : "A"}
+</Avatar>
+<span>
+  {user.displayName}{" "}
+  <button onClick={handelLogout} className="logout__button">
+    Logout
+  </button>
+</span>
+</button>
       </div>
       <div className="sidenav__more">
         <button className="sidenav__button">

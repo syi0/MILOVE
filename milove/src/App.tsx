@@ -5,13 +5,15 @@ import { useEffect } from "react";
 import { auth } from "./firebase";
 import { loginUser, setLoading } from "./Features/userSlice";
 import Authenticator from "./Login/Authentication.tsx";
+import { browserSessionPersistence, inMemoryPersistence, setPersistence } from 'firebase/auth';
 
 function App() {
   const dispatch = useDispatch();
-
+  setPersistence(auth, browserSessionPersistence);
   useEffect(() => {
     auth.onAuthStateChanged((authUser) => {
       if (authUser) {
+        console.log(authUser);
         dispatch(
           loginUser({
             uid: authUser.uid,
