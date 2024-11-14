@@ -1,6 +1,7 @@
 import './Register.css'
 import Logo from '../!images/LOGO.png'
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -12,6 +13,8 @@ export default function Register() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [username, setUsername] = useState("");
+    const navigate = useNavigate();
+
 
     const handleSignUp = (event) => {
         event.preventDefault();
@@ -22,6 +25,7 @@ export default function Register() {
                 displayName: username,
               })
             );
+            navigate("/social");
           })
           .catch((err) => {
             alert(err);

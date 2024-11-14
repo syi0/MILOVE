@@ -10,13 +10,14 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Avatar } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { signOut } from "firebase/auth";
+import { signOut, } from "firebase/auth";
 import { logoutUser } from "../Features/userSlice";
 import { auth } from "../firebase";
 
 export default function Sidenav() {
   
-  const user = useSelector((state) => state.data.user.user);
+ // const user = useSelector((state) => state.data.user.user);
+ const user =  firebase.auth().currentUser;
   console.log("skbd");
   const dispatch = useDispatch();
   const handelLogout = () => {
