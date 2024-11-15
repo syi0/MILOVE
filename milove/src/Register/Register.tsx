@@ -8,6 +8,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../firebase";
+import CWG from "./continueWithGoogle"
 
 export default function Register() {
     const [email, setEmail] = useState("");
@@ -38,9 +39,8 @@ export default function Register() {
                 <label htmlFor="username">Username: </label><br /><input type="text" name="username" id="username" placeholder='Nickname' value={username} onChange={(e) => setUsername(e.target.value)}/> <br /> <br />
                 <label htmlFor="email">Email: </label><br /><input type="email" name="email" id="email" placeholder='name@domain.com' value={email} onChange={(e) => setEmail(e.target.value)} /><br /> <br />
                 <label htmlFor="password">Password: </label><br /><input type="password" name="password" id="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)}/> <br /> <br />
-                <button onClick={handleSignUp}>Sign up</button> <br />
-                <p>You have account? <a href="/login"><b>Login!</b></a></p> <br />
-                <a href="/"><b><i className="fa-solid fa-arrow-left"></i> Home</b></a>
+                <button onClick={handleSignUp}>Sign up</button> <br /> <br />
+                <CWG />
             </form>
         </div>
     );

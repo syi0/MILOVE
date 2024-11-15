@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { auth } from "./firebase";
 import { loginUser, setLoading } from "./Features/userSlice";
 import Authenticator from "./Login/Authentication.tsx";
-import { browserSessionPersistence, inMemoryPersistence, setPersistence } from 'firebase/auth';
+import { browserSessionPersistence, setPersistence } from 'firebase/auth';
 
 function App() {
   const dispatch = useDispatch();
