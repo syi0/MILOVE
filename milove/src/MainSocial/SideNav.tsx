@@ -67,10 +67,6 @@ export default function Sidenav() {
           <span>Explore</span>
         </button>
         <button className="sidenav__button">
-          <SlideshowIcon />
-          <span>Reels</span>
-        </button>
-        <button className="sidenav__button">
           <ChatIcon />
           <span>Messages</span>
         </button>
