@@ -3,7 +3,7 @@ import Logo from '../!images/LOGO.png'
 import { signInWithEmailAndPassword } from "firebase/auth";
 import React, { useState } from "react";
 import { auth } from "../firebase";
-import CWG from "../Register/continueWithGoogle"
+import CWG from "../ContinueWith/continueWithGoogle"
 
 export default function Login() {
     const [email, setEmail] = useState("");
