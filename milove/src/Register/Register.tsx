@@ -8,7 +8,7 @@ import {
   updateProfile,
 } from "firebase/auth";
 import { auth } from "../firebase";
-import CWG from "./continueWithGoogle"
+import CWG from "../ContinueWith/continueWithGoogle"
 
 export default function Register() {
     const [email, setEmail] = useState("");
