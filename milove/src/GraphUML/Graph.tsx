@@ -13,7 +13,8 @@ export default function GraphView() {
       { id: 5, label: 'Email', title: 'EmailInput = email' },
       { id: 6, label: 'Password', title: 'PasswordInput = password' },
       { id: 7, label: 'Username', title: 'UsernameInput = text'},
-      { id: 8, label: 'SocialApp', title: 'SocialApp is main body of social application'}
+      { id: 8, label: 'SocialApp', title: 'SocialApp is main body of social application'},
+      { id: 9, label: 'Post', title: ''},
     ],
     edges: [
       { from: 1, to: 2 },
@@ -35,12 +36,12 @@ export default function GraphView() {
 
   const options: Options = {
     layout: {
-      hierarchical: false,
+      hierarchical: true,
     },
     edges: {
       color: '#000000',
     },
-    height: '1000px',
+    height: '1080px',
   };
 
   const events: GraphEvents = {
