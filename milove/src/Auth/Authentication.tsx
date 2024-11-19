@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./Authentication.css";
-import Login from "./Login";
+import Login from "../Login/Login.tsx";
 import Signup from "../Register/Register";
 
 export default function Authenticate() {
@@ -13,7 +13,7 @@ export default function Authenticate() {
   return (
     <div className="authenticate">
       <div className="auth__left">
-        <img
+      <img
           src="https://i.imgur.com/P3Vm1Kq.png"
           alt="Instagram Screenshots"
         />
