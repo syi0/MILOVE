@@ -10,6 +10,7 @@ import {
 } from "react-router-dom";
 import { Provider } from 'react-redux'
 import {store} from "./app/store"
+import Profile from './Profile/Profile.tsx'
 
 
 const router = createBrowserRouter([
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
   {
     path: "/uml",
     element: <Graph />
+  },
+  {
+    path: "/profile",
+    element: <Profile />
   },
 ]);
 

@@ -7,8 +7,14 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
+<<<<<<< HEAD
+import { auth, db } from "../firebase";
+import CWG from "../ContinueWith/continueWithGoogle"
+import { addDoc, collection } from 'firebase/firestore';
+=======
 import { auth } from "../firebase";
 import CWG from "../ContinueWith/continueWithGoogle"
+>>>>>>> 6dcffcf22863cdd7c99a1161bc3abfee3f1b12f3
 
 export default function Register() {
     const [email, setEmail] = useState("");
@@ -21,11 +27,26 @@ export default function Register() {
         event.preventDefault();
         createUserWithEmailAndPassword(auth, email, password)
           .then((authUser) => {
+<<<<<<< HEAD
+            signInWithEmailAndPassword(auth, email, password).then((authh)=> {
+             console.log(authh.user.uid);
+             
+              console.log(auth.currentUser);
+              updateProfile(auth.currentUser, {
+                displayName: username,
+              });
+              addDoc(collection(db, "userdata"), {
+                uid: authh.user.uid,    
+                age: 12
+              });
+          });
+=======
             signInWithEmailAndPassword(auth, email, password).then(
               updateProfile(auth.currentUser, {
                 displayName: username,
               })
             );
+>>>>>>> 6dcffcf22863cdd7c99a1161bc3abfee3f1b12f3
             navigate("/social");
           })
           .catch((err) => {

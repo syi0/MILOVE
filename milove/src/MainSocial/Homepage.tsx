@@ -3,10 +3,45 @@ import './Homepage.css'
 import SideNav from './SideNav';
 import TimeLine from './TimeLine';
 import { browserSessionPersistence, onAuthStateChanged, setPersistence, User,} from "firebase/auth";
+<<<<<<< HEAD
+import { auth, db } from "../firebase";
+import { useEffect, useState } from 'react';
+import { addDoc, collection, doc, getDocs } from 'firebase/firestore';
+export default function Homepage() {
+    const [user, setUser] = useState(null);
+    const [userdata,setUserdata] = useState(null);
+    useEffect( () => {  
+     async function docs() {
+      await getDocs(collection(db, "userdata"))
+      .then((querySnapshot)=>{               
+          const newData = querySnapshot.docs
+              .map((doc) => ({...doc.data(), id:doc.id }));
+          //setTodos(newData);                
+         setUserdata(newData);
+        
+      });
+     }
+     docs();
+    },[]);
+
+     useEffect( () => {  
+     
+        try {
+          userdata.forEach(element => {
+            if(element.uid==user.uid) {
+                console.log(element.age);
+            }
+          });} catch {
+            return;
+          }
+        }
+          ,[userdata,user]);
+=======
 import { auth } from "../firebase";
 import { useEffect, useState } from 'react';
 export default function Homepage() {
     const [user, setUser] = useState(null);
+>>>>>>> 6dcffcf22863cdd7c99a1161bc3abfee3f1b12f3
  useEffect(() => {
     async function test() {
         
@@ -27,7 +62,11 @@ export default function Homepage() {
       
     }
     test();
+<<<<<<< HEAD
+   
+=======
     console.log(user);
+>>>>>>> 6dcffcf22863cdd7c99a1161bc3abfee3f1b12f3
    
 });
 
