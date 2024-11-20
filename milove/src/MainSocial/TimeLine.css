@@ -1,6 +1,7 @@
 .timeline {
     display: flex;
     flex-direction: row;
+    margin: 2px;
   }
   
   .timeline__left {
