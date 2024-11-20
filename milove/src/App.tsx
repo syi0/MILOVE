@@ -4,8 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { auth } from "./firebase";
 import { loginUser, setLoading } from "./Features/userSlice";
-import Authenticator from "./Login/Authentication.tsx";
-import { browserSessionPersistence, inMemoryPersistence, setPersistence } from 'firebase/auth';
+import Authenticator from "./Auth/Authentication.tsx";
+import { browserSessionPersistence, setPersistence } from 'firebase/auth';
 
 function App() {
   const dispatch = useDispatch();

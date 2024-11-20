@@ -3,6 +3,13 @@
     flex-direction: row;
     align-items: center;
     margin: 0px 50px 0px 50px;
+    background-image: url('../!images/background-for-login-and-register.png');
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    user-select: none;
   }
   
   .auth__left {
@@ -15,12 +22,11 @@
   }
   
   .auth__left > img {
-    width: 400px;
-    margin-top: 40px;
+    width: 300px;
+    margin-top: 35px;
   }
   
   .auth__more {
-    border: 1px solid grey;
     padding: 20px;
     margin-right: 30px;
     margin-left: 30px;
@@ -37,7 +43,6 @@
     background: 0;
     border: 0;
     font-weight: bolder;
-    color: #0095f6;
   }
   
   .auth__more > span > button:hover {
