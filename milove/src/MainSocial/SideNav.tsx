@@ -14,6 +14,7 @@ import { onAuthStateChanged, signOut, } from "firebase/auth";
 import { logoutUser } from "../Features/userSlice";
 import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
+import MiloveLogo from "../!images/LOGO.png"
 
 export default function Sidenav() {
   const navigate=useNavigate();
@@ -49,34 +50,28 @@ export default function Sidenav() {
     <div className="sidenav">
       <img
         className="sidenav__logo"
-        src="https://www.pngkey.com/png/full/828-8286178_mackeys-work-needs-no-elaborate-presentation-or-distracting.png"
+        src={MiloveLogo}
         alt="Instagram Logo"
       />
 
       <div className="sidenav__buttons">
-        <button className="sidenav__button">
-          <HomeIcon />
-          <span>Home</span>
-        </button>
+        <a href="/">
+          <button className="sidenav__button">
+            <HomeIcon />
+            <span>Home</span>
+          </button>
+        </a>
         <button className="sidenav__button">
           <SearchIcon />
           <span>Search</span>
-        </button>
-        <button className="sidenav__button">
-          <ExploreIcon />
-          <span>Explore</span>
         </button>
         <button className="sidenav__button">
           <ChatIcon />
           <span>Messages</span>
         </button>
         <button className="sidenav__button">
-          <FavoriteBorderIcon />
-          <span>Notifications</span>
-        </button>
-        <button className="sidenav__button">
           <AddCircleOutlineIcon />
-          <span>Create</span>
+          <span>Create post!</span>
         </button>
         <button className="sidenav__button">
 <Avatar>
