@@ -13,7 +13,7 @@ npm run dev
 ```
 
 If you want to look at our project progress, check out commits or trello
-*Trello*: 
+ - *Trello*: https://
 
 
 ---
