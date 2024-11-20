@@ -1,0 +1,9 @@
+.profile {
+    background-image: url("../!images/background-for-login-and-register.png");
+    width: 100%;
+    height: 100vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    user-select: none;
+}
