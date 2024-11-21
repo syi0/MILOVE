@@ -1,6 +1,6 @@
 # MILOVE PROJECT - easiest way to find your love
 ---
-> [!NOTE]
+> [!WARNING]
 > This is Work in Progress version.
 > **Stable** version (BETA) you can find on `main` branch 
 ---
