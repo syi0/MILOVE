@@ -1,7 +1,8 @@
 # MILOVE PROJECT - easiest way to find your love
 ---
-##### This is Work in Progress version.
-##### **Stable** version (BETA) you can find on `main` branch 
+> [!NOTE]
+> This is Work in Progress version.
+> **Stable** version (BETA) you can find on `main` branch 
 ---
 ##### MILOVE is the ultimate way to find your perfect match. Unlike traditional dating sites, MILOVE takes a fresh approach by resembling popular social media platforms, making it more user-friendly and approachable. This modern, engaging format allows you to connect with others in a more natural, relaxed way. It’s not just about finding a date—it’s about creating meaningful connections. Whether you're looking for love or simply exploring new friendships, MILOVE offers a fun, intuitive space to discover your other half. Step away from the typical dating scene and experience something that feels like home.
 ---
