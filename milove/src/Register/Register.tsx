@@ -9,7 +9,7 @@ import {
 } from "firebase/auth";
 import { auth, db } from "../firebase";
 import CWG from "../ContinueWith/continueWithGoogle"
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, doc, setDoc } from 'firebase/firestore';
 
 export default function Register() {
     const [email, setEmail] = useState("");
@@ -30,9 +30,8 @@ export default function Register() {
                 displayName: username,
                 photoURL: "https://static.wikia.nocookie.net/silly-cat/images/7/78/Melon_Cat_Species_2.png",
               });
-              addDoc(collection(db, "userdata"), {
-                uid: authh.user.uid,    
-                age: 12,
+              setDoc(doc(db, "userdata",authh.user.uid), {   
+                age: null,
                 desc: "testt"
               });
           });

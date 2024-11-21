@@ -9,7 +9,7 @@ import { addDoc, collection, doc, getDocs } from 'firebase/firestore';
 export default function Homepage() {
     const [user, setUser] = useState(null);
     const [userdata,setUserdata] = useState(null);
-    useEffect( () => {  
+   /* useEffect( () => {  
      async function docs() {
       await getDocs(collection(db, "userdata"))
       .then((querySnapshot)=>{               
@@ -34,7 +34,7 @@ export default function Homepage() {
             return;
           }
         }
-          ,[userdata,user]);
+          ,[userdata,user]);*/
  useEffect(() => {
     async function test() {
         
