@@ -15,7 +15,7 @@ export default function GraphView() {
       { id: 7, label: 'Username', title: 'UsernameInput = type text'},
       { id: 8, label: 'SocialApp', title: 'SocialApp is main body of social application'},
       { id: 9, label: 'Post', title: 'Post is photo that was posted by user and it has likes, options to message to post author'},
-      { id: 10, label: 'SideNav', title: 'Side bar applicaion'},
+      { id: 10, label: 'SideNav', title: 'Side bar applicaion - home, search, profile and logout buttons'},
     ],
     edges: [
       { from: 1, to: 2 },
@@ -30,6 +30,8 @@ export default function GraphView() {
       { from: 1, to: 8},
       { from: 8, to: 1},
       { from: 8, to: 2},
+      { from: 9, to: 2},
+      { from: 10, to: 2},
       
       
     ],
