@@ -28,10 +28,12 @@ export default function Register() {
               console.log(auth.currentUser);
               updateProfile(auth.currentUser, {
                 displayName: username,
+                photoURL: "https://static.wikia.nocookie.net/silly-cat/images/7/78/Melon_Cat_Species_2.png",
               });
               addDoc(collection(db, "userdata"), {
                 uid: authh.user.uid,    
-                age: 12
+                age: 12,
+                desc: "testt"
               });
           });
             navigate("/social");

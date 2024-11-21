@@ -4,16 +4,21 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from "react";
 import { auth } from "../firebase";
 import CWG from "../ContinueWith/continueWithGoogle"
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
     const [email, setEmail] = useState("");
+    const navigate=useNavigate();
     const [password, setPassword] = useState("");
     const onSubmit = (e) => {
         e.preventDefault();
       };
     
     const handleLogin = () => {
-        signInWithEmailAndPassword(auth, email, password);
+        signInWithEmailAndPassword(auth, email, password).then(
+          ()=>{  navigate("/social");}
+        );
+   
     };
     return (
         <div className='Login'>

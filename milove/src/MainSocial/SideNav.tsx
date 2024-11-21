@@ -19,6 +19,7 @@ import MiloveLogo from "../!images/LOGO.png"
 export default function Sidenav() {
   const navigate=useNavigate();
   const [user, setUser] = useState(0);
+
   useEffect(() => {
      async function test() {
          
@@ -74,9 +75,16 @@ export default function Sidenav() {
           <span>Create post!</span>
         </button>
         <button className="sidenav__button">
+          <div onClick={
+            () => {
+            
+              navigate("/profile");
+            }
+          }>
 <Avatar>
   {user.displayName ? user.displayName.charAt(0).toUpperCase() : "A"}
 </Avatar>
+</div>
 <span>
   {user.displayName}{" "}
   <button onClick={handelLogout} className="logout__button">

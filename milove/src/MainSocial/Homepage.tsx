@@ -55,7 +55,7 @@ export default function Homepage() {
       
     }
     test();
-   
+   console.log("user");
    
 });
 
