@@ -6,26 +6,40 @@
     background-repeat: no-repeat;
     background-position: center;
     user-select: none;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
 }
 
 .profile_data {
     height: 700px;
     width: 600px;
+    position: relative;
     justify-content: center;
     text-align: center;
-    position: relative;
-    display: block;
-    left: 50%;
-    right: 50%;
+    align-items: center;
+    margin-left: 50%;
+    background-color: #333;
+    border-radius: 8px;
 }
 
-.profile_icon {
-    height: 200px;
-    width: 200px;
-
+.profile_icon img{
+    height: 100px;
+    margin-top: 10px;
+    width: 100px;
+    border-radius: 50px;
 }
 .profile_info {
-    display: flex;
     font-size: large;
     font-weight: 600;
+}
+
+.profile_icon img:hover {
+    opacity: 0.7;
+    background: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.social_come_back {
+    margin: 5px;
 }

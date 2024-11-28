@@ -144,11 +144,12 @@ export default function Profile() {
     return(
         <div className='profile'>
             <div className="profile_data">
-                <div className='profile_icon'>{img==null ? <><>brak zdjecia</><input onChange={imgchng} type="file" /></> : <><img onClick={() => {filepick.current.click();}} src={img}></img><input onChange={imgchng} type="file" ref={filepick} style={{display: 'none'}}/></> } </div>
-                <div className="profile_info">{user.displayName} + {age==null ? <input onKeyDownCapture={ageChange}></input> : age}. If age is null, you need to click button to enter that shit</div>
-                <div className="profile_description">{desc==null ? "brak opisu" : desc}Description of the profile, user must say anything about yourself</div>
+                <div className='profile_icon'>{img==null ? <><>brak zdjecia</><input onChange={imgchng} type="file" /></> : <><img onClick={() => {filepick.current.click();}} src={img}></img><input onChange={imgchng} type="file" ref={filepick} style={{display: 'none'}}/></> } </div> <br />
+                <div className="profile_info">{user.displayName} age:{age==null ? <input onKeyDownCapture={ageChange}></input> : age}</div> 
+                <div className="profile_description">{desc==null ? "brak opisu" : desc}</div>
                 <div className="profile_message_button">Button that user must click to chat with that person</div>
                 <div className="profile_posts">Post that user posted</div>
+                <a href="/social" className='social_come_back'>Back</a>
             </div>
         </div>
     );

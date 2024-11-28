@@ -15,6 +15,7 @@ import { logoutUser } from "../Features/userSlice";
 import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
 import MiloveLogo from "../!images/LOGO.png"
+import SearchPopup from "../SearchPopup/SearchPopup";
 
 export default function Sidenav() {
   const navigate=useNavigate();
@@ -62,6 +63,7 @@ export default function Sidenav() {
             <span>Home</span>
           </button>
         </a>
+        <SearchPopup></SearchPopup>
         <button className="sidenav__button">
           <SearchIcon />
           <span>Search</span>
