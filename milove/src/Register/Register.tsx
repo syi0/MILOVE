@@ -30,10 +30,10 @@ export default function Register() {
                 displayName: username,
                 photoURL: "https://static.wikia.nocookie.net/silly-cat/images/7/78/Melon_Cat_Species_2.png",
               });
-              setDoc(doc(db, "userdata",authh.user.uid), {   
+              /*setDoc(doc(db, "userdata",authh.user.uid), {   
                 age: null,
                 desc: "testt"
-              });
+              });*/
           });
             navigate("/social");
           })
