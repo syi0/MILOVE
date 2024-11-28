@@ -5,12 +5,16 @@ import { auth, db } from '../firebase';
 import { collection, doc, getDocs, setDoc } from 'firebase/firestore';
 import { getStorage, ref, uploadBytes } from "firebase/storage";
 import axios from "axios";
+import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 export default function Profile() {
     const [user,setUser]=useState(null);
     const [userdata,setUserdata] = useState(null);
     const [age,setAge] = useState(null);
     const [desc,setDesc] = useState(null);
     const [img,setImg]=useState(null);
+    const filepick=useRef(null);
+  
     const storage = getStorage();
   /*  function handleChange(e) {
         console.log(e.target.files);
@@ -50,19 +54,27 @@ export default function Profile() {
                 baseURL = reader.result;
                 console.log(baseURL);
                 //resolve(baseURL);
-                setImg(URL.createObjectURL(new File([convertBase64ToFile(baseURL)],"pfp")));
-                setDoc(doc(db, "userdata","imgtest"), {   
-                  img: baseURL
+               setImg(URL.createObjectURL(new File([convertBase64ToFile(baseURL)],"pfp")));
+                //setImg("skibidi");
+               setDoc(doc(db, "userdata",user.uid), {   
+                  img: baseURL,
+                  age: age,
+                  desc: desc
                 });
+                
               }
           });
         }
         
           
-   function imgchng(e) {
+   async function imgchng(e) {
     console.log(e.target.files[0]);
    
-   uplBase64(e.target.files[0]);
+    uplBase64(e.target.files[0]);
+   
+   
+  
+   
    }
    function ageChange(e){
 
@@ -70,7 +82,8 @@ export default function Profile() {
         console.log(e.target.value);
         setDoc(doc(db, "userdata",user.uid), {   
             age: e.target.value,
-            desc: desc
+            desc: desc,
+            img: img
           });
     }
    }
@@ -96,6 +109,7 @@ export default function Profile() {
                if(element.id==user.uid) {
                    setAge(element.age);
                    setDesc(element.desc);
+                   setImg(element.img)
                }
              });} catch {
                return;
@@ -130,7 +144,7 @@ export default function Profile() {
     return(
         <div className='profile'>
             <div className="profile_data">
-                <div className='profile_icon'>{img==null ? "brak zdjecia" : <img src={img}></img>} <input onChange={imgchng}type="file" /></div>
+                <div className='profile_icon'>{img==null ? <><>brak zdjecia</><input onChange={imgchng} type="file" /></> : <><img onClick={() => {filepick.current.click();}} src={img}></img><input onChange={imgchng} type="file" ref={filepick} style={{display: 'none'}}/></> } </div>
                 <div className="profile_info">{user.displayName} + {age==null ? <input onKeyDownCapture={ageChange}></input> : age}. If age is null, you need to click button to enter that shit</div>
                 <div className="profile_description">{desc==null ? "brak opisu" : desc}Description of the profile, user must say anything about yourself</div>
                 <div className="profile_message_button">Button that user must click to chat with that person</div>
