@@ -11,6 +11,8 @@ export default function Profile() {
     const [user,setUser]=useState(null);
     const [userdata,setUserdata] = useState(null);
     const [age,setAge] = useState(null);
+    const [disp,setDisp] = useState(null);
+    const [imgdisp,setImgDisp] = useState(null);
     const [desc,setDesc] = useState(null);
     const [img,setImg]=useState(null);
     const filepick=useRef(null);
@@ -54,12 +56,15 @@ export default function Profile() {
                 baseURL = reader.result;
                 console.log(baseURL);
                 //resolve(baseURL);
-               setImg(URL.createObjectURL(new File([convertBase64ToFile(baseURL)],"pfp")));
-                //setImg("skibidi");
+                setImg(baseURL);
+               setImgDisp(URL.createObjectURL(new File([convertBase64ToFile(baseURL)],"pfp")));
+               console.log(typeof(baseURL));
+               //setImg("skibidi");
                setDoc(doc(db, "userdata",user.uid), {   
                   img: baseURL,
                   age: age,
-                  desc: desc
+                  desc: desc,
+                  displayName: disp
                 });
                 
               }
@@ -83,8 +88,10 @@ export default function Profile() {
         setDoc(doc(db, "userdata",user.uid), {   
             age: e.target.value,
             desc: desc,
-            img: img
+            img: img,
+            displayName: disp
           });
+          setAge(e.target.value);
     }
    }
     useEffect( () => {  
@@ -109,7 +116,8 @@ export default function Profile() {
                if(element.id==user.uid) {
                    setAge(element.age);
                    setDesc(element.desc);
-                   setImg(element.img)
+                   setImg(element.img);
+                   setDisp(element.displayName);
                }
              });} catch {
                return;
