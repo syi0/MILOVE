@@ -63,9 +63,6 @@ export default function Homepage() {
         <div className='homepage'>
             <div className='homepage_nav'><SideNav/></div>
             <div className="homepage_timeline"><TimeLine/></div>
-
-            
-            <a href="/">Home</a>
         </div>
     );
 }
