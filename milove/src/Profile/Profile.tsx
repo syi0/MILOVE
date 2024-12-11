@@ -5,6 +5,7 @@ import { auth, db } from '../firebase';
 import { collection, doc, getDocs, setDoc } from 'firebase/firestore';
 import { getStorage, ref, uploadBytes } from "firebase/storage";
 import axios from "axios";
+import ProfileEditor from '../ProfileEditor/ProfileEditor';
 import { useRef } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 export default function Profile() {
@@ -17,6 +18,7 @@ export default function Profile() {
     const [img,setImg]=useState(null);
     const filepick=useRef(null);
     const [srchprms]=useSearchParams();
+    const [vis,setVis]=useState(false);
     const [uid,setUid]=useState(null);
     const storage = getStorage();
   /*  function handleChange(e) {
@@ -171,6 +173,8 @@ export default function Profile() {
                 <div className="profile_message_button">Button that user must click to chat with that person</div>
                 <div className="profile_posts">Post that user posted</div>
                 <a href="/social" className='social_come_back'>Back</a>
+                <button onClick={()=>setVis(!vis)}>Edit skibidfi</button>
+                <ProfileEditor vis={vis} uid={user.uid} disp={disp} age={age} img={img} desc={desc}/>
             </div>
         </div>
     );
