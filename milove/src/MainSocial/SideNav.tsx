@@ -98,10 +98,6 @@ export default function Sidenav() {
         </a>
         <SearchPopup></SearchPopup>
         <button className="sidenav__button">
-          <SearchIcon />
-          <span>Search</span>
-        </button>
-        <button className="sidenav__button">
           <ChatIcon />
           <span>Messages</span>
         </button>

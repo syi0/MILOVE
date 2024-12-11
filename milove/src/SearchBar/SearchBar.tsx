@@ -62,7 +62,7 @@ export default function SearchBar() {
     <div className='serchbar_window'>
       
             <input type="text" name="searchbar_input" id="searchbar_input" onKeyDown={search}/>
-            <button type='button' className='searchbar_buton'></button>
+            <button type='button' className='searchbar_buton'><i className="fa-solid fa-magnifying-glass"></i></button>
        
     </div>
   )

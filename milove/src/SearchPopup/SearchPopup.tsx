@@ -2,10 +2,11 @@ import React from 'react'
 import './SearchPopup.css'
 import Popup from 'reactjs-popup';
 import SearchBar from '../SearchBar/SearchBar';
+import SearchIcon from "@mui/icons-material/Search";
 
 export default function SearchPopup() {
   return (
-    <Popup trigger={<button>Open Popup</button>}>
+    <Popup trigger={<button className='popup_button'><SearchIcon/><span>Search</span></button>} className='popup_button'>
         <SearchBar></SearchBar>
     </Popup>
   ) 
