@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import './SearchBar.css'
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
+import { useNavigate } from 'react-router-dom';
 
 export default function SearchBar() {
   const [user,setUser]=useState(null);
@@ -11,6 +12,7 @@ export default function SearchBar() {
   const [imgdisp,setImgDisp] = useState(null);
   const [desc,setDesc] = useState(null);
   const [img,setImg]=useState(null);
+  const navigate=useNavigate();
   useEffect( () => {  
     async function docs() {
      await getDocs(collection(db, "userdata"))
@@ -48,6 +50,7 @@ export default function SearchBar() {
           userdata.forEach(element => {
             if(element.displayName==e.target.value) {
               console.log(element.id);
+              navigate("/profile?uid="+element.id);
             }
           });} catch {
             return;

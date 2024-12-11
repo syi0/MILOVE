@@ -6,7 +6,7 @@ import { collection, doc, getDocs, setDoc } from 'firebase/firestore';
 import { getStorage, ref, uploadBytes } from "firebase/storage";
 import axios from "axios";
 import { useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 export default function Profile() {
     const [user,setUser]=useState(null);
     const [userdata,setUserdata] = useState(null);
@@ -16,7 +16,8 @@ export default function Profile() {
     const [desc,setDesc] = useState(null);
     const [img,setImg]=useState(null);
     const filepick=useRef(null);
-  
+    const [srchprms]=useSearchParams();
+    const [uid,setUid]=useState(null);
     const storage = getStorage();
   /*  function handleChange(e) {
         console.log(e.target.files);
@@ -111,7 +112,7 @@ export default function Profile() {
         useEffect( () => {  
             
            try {
-          
+          if(uid==null) {
              userdata.forEach(element => {
                if(element.id==user.uid) {
                    setAge(element.age);
@@ -119,7 +120,18 @@ export default function Profile() {
                    setImg(element.img);
                    setDisp(element.displayName);
                }
-             });} catch {
+              });}
+              else{
+                userdata.forEach(element => {
+                  if(element.id==uid) {
+                      setAge(element.age);
+                      setDesc(element.desc);
+                      setImg(element.img);
+                      setDisp(element.displayName);
+                  }
+                 });
+              }
+             } catch {
                return;
              }
            }
@@ -130,15 +142,16 @@ export default function Profile() {
        
         await onAuthStateChanged(auth, (userr) => {
          
-            if (userr != null) {
+            if (userr != null && srchprms.get("uid")==null) {
               // User is signed in, see docs for a list of available properties
               // https://firebase.google.com/docs/reference/js/auth.user
                setUser(userr);
-            
+
               // ...
             } else {
-              // User is signed out
-              // ...
+             if(srchprms.get("uid")!=null) {
+              setUid(srchprms.get("uid"));
+             }
             }
           });
           
@@ -147,7 +160,7 @@ export default function Profile() {
 
        
     });
-    console.log(user);
+    console.log(img);
     if(user!=null) {
     return(
         <div className='profile'>
@@ -161,6 +174,21 @@ export default function Profile() {
             </div>
         </div>
     );
+} else {
+  if(uid!=null) {
+    return(
+      <div className='profile'>
+          <div className="profile_data">
+              <div className='profile_icon'>{img==null ? <>brak zdjecia</> : <img src={img}></img> } </div> <br />
+              <div className="profile_info">{disp} age:{age==null ? <>nie podaje wieku</> : age}</div> 
+              <div className="profile_description">{desc==null ? "brak opisu" : desc}</div>
+              <div className="profile_message_button">Button that user must click to chat with that person</div>
+              <div className="profile_posts">Post that user posted</div>
+              <a href="/social" className='social_come_back'>Back</a>
+          </div>
+      </div>
+  );
+  }
 }
 }
 
