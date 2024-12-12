@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import './Homepage.css'
 import SideNav from './SideNav';
+import SidenavSmall from './SideNavSmall';
 import TimeLine from './TimeLine';
 import { browserSessionPersistence, onAuthStateChanged, setPersistence, User,} from "firebase/auth";
 import { auth, db } from "../firebase";
@@ -61,6 +62,7 @@ export default function Homepage() {
 
     return(
         <div className='homepage'>
+            <SidenavSmall/>
             <div className='homepage_nav'><SideNav/></div>
             <div className="homepage_timeline"><TimeLine/></div>
         </div>
