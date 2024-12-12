@@ -1,9 +1,27 @@
 import './TimeLine.css'
 import Post from "./Post.tsx";
 import Suggestions from "./Suggestions.tsx";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../firebase.ts';
 
 export default function TimeLine() {
+  const [postdata,setPostdata]=useState(null);
+  useEffect( () => {  
+    async function docs() {
+     await getDocs(collection(db, "posts"))
+     .then((querySnapshot)=>{               
+         const newData = querySnapshot.docs
+             .map((doc) => ({...doc.data(), id:doc.id }));
+                        
+        setPostdata(newData);
+        console.log(newData);
+       
+     });
+    }
+    docs();
+    
+   },[]);
     const [posts, setPosts] = useState([
         {
           user: "redian_",
@@ -39,10 +57,10 @@ export default function TimeLine() {
         <div className="timeline">
           <div className="timeline__left">
             <div className="timeline__posts">
-              {posts.map((post) => (
+              {postdata.map((post) => (
                 <Post
                   user={post.user}
-                  postImage={post.postImage}
+                  postImage={post.postImg}
                   likes={post.likes}
                   timestamp={post.timestamp}
                 />

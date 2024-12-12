@@ -17,13 +17,14 @@ import { useNavigate } from "react-router-dom";
 import MiloveLogo from "../!images/LOGO.png"
 import SearchPopup from "../SearchPopup/SearchPopup";
 import { collection, getDocs } from "firebase/firestore";
-
+import PostPopup from "../PostPopup/PostPopup";
 export default function Sidenav() {
   const navigate=useNavigate();
   const [user, setUser] = useState(0);
   const [userdata,setUserdata] = useState(null);
   const [age,setAge] = useState(null);
   const [desc,setDesc] = useState(null);
+  const [vis,setVis] = useState(false);
   const [img,setImg]=useState(null);
   useEffect( () => {  
     async function docs() {
@@ -101,10 +102,11 @@ export default function Sidenav() {
           <ChatIcon />
           <span>Messages</span>
         </button>
-        <button className="sidenav__button">
+        <button className="sidenav__button" onClick={()=>setVis(!vis)}>
           <AddCircleOutlineIcon />
           <span>Create post!</span>
         </button>
+        <PostPopup uid={user.uid} vis={vis}/>
         <button className="sidenav__button">
           <div onClick={
             () => {
