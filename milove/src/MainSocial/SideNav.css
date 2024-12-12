@@ -59,3 +59,24 @@
     cursor: pointer;
     background-color: rgba(255, 255, 255, 0.424);
   }
+
+  @media only screen and (max-width: 1400px) {
+    .sidenav__button > span {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1320px) {
+  .sidenav__logo {
+      display: none;
+  }
+  .sidenav__buttons {
+    margin-top: 100px;
+  }
+}
+
+@media only screen and (max-width: 1175px) {
+  .sidenav {
+      display: none;
+  }
+}

@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "./Sidenav.css";
+import "./SidenavSmall.css";
 import HomeIcon from "@mui/icons-material/Home";
-import SearchIcon from "@mui/icons-material/Search";
-import ExploreIcon from "@mui/icons-material/Explore";
-import SlideshowIcon from "@mui/icons-material/Slideshow";
 import ChatIcon from "@mui/icons-material/Chat";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import MenuIcon from "@mui/icons-material/Menu";
 import { Avatar } from "@mui/material";
@@ -18,7 +14,7 @@ import MiloveLogo from "../!images/LOGO.png"
 import SearchPopup from "../SearchPopup/SearchPopup";
 import { collection, getDocs } from "firebase/firestore";
 
-export default function Sidenav() {
+export default function SidenavSmall() {
   const navigate=useNavigate();
   const [user, setUser] = useState(0);
   const [userdata,setUserdata] = useState(null);
@@ -82,30 +78,21 @@ export default function Sidenav() {
     signOut(auth);
   };
   return (
-    <div className="sidenav">
-      <img
-        className="sidenav__logo"
-        src={MiloveLogo}
-        alt="Instagram Logo"
-      />
-
-      <div className="sidenav__buttons">
+    <div className="sidenav_small">
+      <div className="sidenav__buttons_small">
         <a href="/">
-          <button className="sidenav__button">
+          <button className="sidenav__button_small">
             <HomeIcon />
-            <span>Home</span>
           </button>
         </a>
         <SearchPopup></SearchPopup>
-        <button className="sidenav__button">
+        <button className="sidenav__button_small">
           <ChatIcon />
-          <span>Messages</span>
         </button>
-        <button className="sidenav__button">
+        <button className="sidenav__button_small">
           <AddCircleOutlineIcon />
-          <span>Create post!</span>
         </button>
-        <button className="sidenav__button">
+        <button className="sidenav__button_small">
           <div onClick={
             () => {
             
@@ -114,14 +101,14 @@ export default function Sidenav() {
           }>
 <Avatar>
   {user.displayName ? user.displayName.charAt(0).toUpperCase() : "A"}
-  <img src={img} height="100px" width="100px" alt="" />
+  <img src={img} height="100px" width="100px" alt="" className="avatar"/>
 </Avatar>
 
 </div>
 <span>
   {user.displayName}{" "}
   <button onClick={handelLogout} className="logout__button">
-    Logout
+  <i className="fa-solid fa-right-from-bracket"></i>
   </button>
 </span>
 </button>
