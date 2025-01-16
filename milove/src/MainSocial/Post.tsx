@@ -21,7 +21,8 @@ function Post({ user, postImage, likes, timestamp }) {
         <MoreHorizIcon />
       </div>
       <div className="post__image">
-        <img src={postImage} alt="Post Image" />
+        <img src={postImage} 
+       width={"550px"} height={"550px"} alt="Post Image" />
       </div>
       <div className="post__footer">
         <div className="post__footerIcons">

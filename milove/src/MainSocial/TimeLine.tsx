@@ -4,7 +4,18 @@ import Suggestions from "./Suggestions.tsx";
 import { useEffect, useState } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase.ts';
-
+function datestamp(timestamp) {
+  let diff=(Date.now()- new Date(timestamp).getTime());
+  if(diff/(86400000)<1){
+    if(diff/(3600000)<1){
+      return String(parseInt(diff/(60000)))+"m";
+    } else {
+      return String(parseInt(diff/(3600000)))+"h";
+    }
+  }else {
+    return String(parseInt(diff/(86400000)))+"d";
+  }
+}
 export default function TimeLine() {
   const [postdata,setPostdata]=useState(null);
   const [userdata,setUserdata] = useState(null);
@@ -77,7 +88,7 @@ export default function TimeLine() {
         },
       ]);
       if(postdata==null) { return ;} else { 
-        console.log(parseInt((Date.now()- new Date(postdata[9].timestamp).getTime())/(86400000)));
+       
         return (
         <div className="timeline">
         <div className="timeline__left">
@@ -87,8 +98,8 @@ export default function TimeLine() {
               <Post
                 user={post.user}
                 postImage={post.postImg}
-                likes={post.likes}
-                timestamp={post.timestamp}
+                likes={Math.floor(Math.random() * 1000)}
+                timestamp={datestamp(post.timestamp)}
               />
             ))}
           </div>
