@@ -26,6 +26,7 @@ export default function Sidenav() {
   const [desc,setDesc] = useState(null);
   const [vis,setVis] = useState(false);
   const [img,setImg]=useState(null);
+  const [disp,setDisp]=useState(null);
   useEffect( () => {  
     async function docs() {
      await getDocs(collection(db, "userdata"))
@@ -49,6 +50,7 @@ export default function Sidenav() {
                setAge(element.age);
                setDesc(element.desc);
                setImg(element.img);
+               setDisp(element.displayName);
            }
          });} catch {
            return;
@@ -82,6 +84,7 @@ export default function Sidenav() {
     dispatch(logoutUser());
     signOut(auth);
   };
+
   return (
     <div className="sidenav">
       <img
@@ -115,13 +118,13 @@ export default function Sidenav() {
             }
           }>
 <Avatar>
-  {user.displayName ? user.displayName.charAt(0).toUpperCase() : "A"}
+  {disp ? disp.charAt(0).toUpperCase() : "A"}
   <img src={img} height="100px" width="100px" alt="" />
 </Avatar>
 
 </div>
 <span>
-  {user.displayName}{" "}
+  {disp}{" "}
   <button onClick={handelLogout} className="logout__button">
     Logout
   </button>

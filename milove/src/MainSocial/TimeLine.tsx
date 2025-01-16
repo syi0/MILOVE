@@ -7,21 +7,45 @@ import { db } from '../firebase.ts';
 
 export default function TimeLine() {
   const [postdata,setPostdata]=useState(null);
+  const [userdata,setUserdata] = useState(null);
   useEffect( () => {  
     async function docs() {
-     await getDocs(collection(db, "posts"))
+     await getDocs(collection(db, "userdata"))
      .then((querySnapshot)=>{               
          const newData = querySnapshot.docs
              .map((doc) => ({...doc.data(), id:doc.id }));
-                        
-        setPostdata(newData);
-        console.log(newData);
+                    
+        setUserdata(newData);
        
      });
     }
     docs();
-    
    },[]);
+  useEffect( () => {  
+    async function docs() {
+
+     await getDocs(collection(db, "posts")).then((querySnapshot)=>{               
+         const newData = querySnapshot.docs.map((doc) => ({...doc.data(), id:doc.id }));
+  
+        newData.forEach(element => {
+          userdata.forEach(elementuser => {
+           
+            if(element.user==elementuser.id) {
+              element.user=elementuser.displayName;
+              console.log(elementuser);
+            console.log(element);
+            }
+          });
+                                
+        setPostdata(newData);
+        console.log(newData);
+        });
+      
+     })
+    }
+    docs();
+    
+   },[userdata]);
     const [posts, setPosts] = useState([
         {
           user: "redian_",
@@ -52,24 +76,28 @@ export default function TimeLine() {
           timestamp: "2d",
         },
       ]);
-    
-      return (
+      if(postdata==null) { return ;} else { 
+        console.log(parseInt((Date.now()- new Date(postdata[9].timestamp).getTime())/(86400000)));
+        return (
         <div className="timeline">
-          <div className="timeline__left">
-            <div className="timeline__posts">
-              {postdata.map((post) => (
-                <Post
-                  user={post.user}
-                  postImage={post.postImg}
-                  likes={post.likes}
-                  timestamp={post.timestamp}
-                />
-              ))}
-            </div>
-          </div>
-          <div className="timeline__right">
-            <Suggestions />
+        <div className="timeline__left">
+          <div className="timeline__posts">
+            
+            {postdata.map((post) => (
+              <Post
+                user={post.user}
+                postImage={post.postImg}
+                likes={post.likes}
+                timestamp={post.timestamp}
+              />
+            ))}
           </div>
         </div>
+        <div className="timeline__right">
+          <Suggestions />
+        </div>
+      </div>
       );
+      }
+     
 }
