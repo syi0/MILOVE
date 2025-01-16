@@ -181,8 +181,9 @@ export default function Profile() {
                 <div className='profile_icon'>{img==null ? <><>brak zdjecia</><input onChange={imgchng} type="file" /></> : <><img onClick={() => {filepick.current.click();}} src={img}></img><input onChange={imgchng} type="file" ref={filepick} style={{display: 'none'}}/></> } </div> <br />
                 <div className="profile_info">{disp} age:{age==null ? <input onKeyDownCapture={ageChange}></input> : age}</div> 
                 <div className="profile_description">{desc==null ? "brak opisu" : desc}</div>
+                
+                <button onClick={()=>setVis(!vis)}>Edit</button> <br />
                 <a href="/social" className='social_come_back'>Back</a>
-                <button onClick={()=>setVis(!vis)}>Edit skibidfi</button>
                 <ProfileEditor datapss={datapss} vis={vis} uid={user.uid} disp={disp} age={age} img={img} desc={desc}/>
             </div>
         </div>

@@ -40,7 +40,7 @@ function  uplBase64(file) {
     });
   }
   return (
-    <div style={{visibility: vis ? "visible" : "hidden"}}>
+    <div style={{visibility: vis ? "visible" : "hidden"}} className='post_popup_adding'>
         <input type="file" name="post_image" id="post_image" onChange={uplBase64}/>
         <button onClick={post} type="button">Create Post!</button>
     </div>
