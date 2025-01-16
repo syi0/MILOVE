@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">milove</string>
+    <string name="title_activity_main">milove</string>
+    <string name="package_name">milove.app</string>
+    <string name="custom_url_scheme">milove.app</string>
+</resources>

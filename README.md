@@ -21,3 +21,4 @@ If you want to look at our project progress, check out commits or trello
 
 ###### All rights reserved. Project MILOVE™️ was created to use it for free
 ###### Authors: Nataniel Sypko (syi0), Michał Murawski (redM) and Stefan Wójcik (swk)
+

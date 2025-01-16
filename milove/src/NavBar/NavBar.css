@@ -1,0 +1,32 @@
+nav {
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(20px);
+    user-select: none;
+    box-shadow: 3px 3px 0 0 .4em;
+    position: sticky;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgba(0, 0, 0, 0.671);
+
+    
+}
+  
+nav ul li {
+    float: left;
+}
+  
+nav ul li a {
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+}
+  
+li:last-child {
+    float: right;
+}
+  
